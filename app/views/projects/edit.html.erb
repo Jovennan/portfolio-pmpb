@@ -1,0 +1,10 @@
+<h1>Editando Projeto</h1>
+<%= form_for(@project) do |f| %>
+  <%= render 'errors', project: @project %>
+  <%= render 'fields', f: f, project: @project %>
+  <%= render 'fields_programmers', f: f, project: @project, programmers: @programmers %>
+  <button type="submit" class="btn btn-success btn-block">Atualizar</button>
+<% end %>
+<br>
+<%= link_to 'Mostrar', project_path(@project), class: 'btn btn-info' %>
+<%= link_to 'Voltar', projects_path, class: 'btn btn-default' %>

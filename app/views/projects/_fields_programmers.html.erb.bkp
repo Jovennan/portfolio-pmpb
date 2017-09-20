@@ -1,0 +1,20 @@
+
+<div class="form-group">
+  <%= f.hidden_field 'programmer_ids[]', value: [] %>
+  <%= f.label "Programadores"%>
+  <ul>
+    <% Programmer.all.each do |programmer| %>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6  col-xs-12 checkbox">
+            <%= hidden_field_tag('programmer_ids[]', programmer.id) %>
+            <%= label_tag("programmer_#{programmer.name}", programmer.name) %>
+            <%= check_box_tag "project[programmer_ids][]", programmer.id,
+            project.programmers.include?(programmer), id: "programmer_#{programmer.name}"%>
+
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

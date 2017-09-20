@@ -1,0 +1,36 @@
+<h1>Clientes</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th colspan="3">Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @clients.each do |client| %>
+            <tr>
+                <td>
+                    <%= client.id %>
+                </td>
+                <td>
+                    <%= client.name %>
+                </td>
+                <td>
+                    <%= link_to 'Mostrar', client_path(client), class: 'btn btn-primary' %>
+                </td>
+                <td>
+                    <%= link_to 'Editar', edit_client_path(client), class: 'btn btn-warning' %>
+                </td>
+                <td>
+                    <%= link_to 'Remover', client_path(client), class: 'btn btn-danger',
+                    method: :delete, data: { confirm: 'Confirma remoção? Ação irreversível!!!'} %>
+                </td>
+            </tr>
+            <% end %>
+    </tbody>
+</table>
+<br>
+<%= link_to 'Novo Cliente', new_client_path, class: 'btn btn-primary' %>

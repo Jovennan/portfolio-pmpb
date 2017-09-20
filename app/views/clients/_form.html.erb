@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sx-12">
+        <%= form_for(client) do |f| %>
+            <% if client.errors.any? %>
+                <div id="error_explanation">
+                    <h2>
+                        <%= pluralize(client.errors.count, "error")%>
+                            Impossível salvar informações deste Cliente:
+                    </h2>
+                    <ul>
+                        <% client.errors.full_messages.each do |message| %>
+                            <li>
+                                <%= message %>
+                            </li>
+                            <% end %>
+                    </ul>
+                </div>
+                <% end %>
+                    <div class="form-group">
+                        <%= f.label :name %>
+                            <%= f.text_field :name, class: 'form-control' %>
+                    </div>
+                    <div class="actions">
+                        <%= f.submit 'Salvar', class: 'btn btn-primary btn-block' %>
+                    </div>
+                    <% end %>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<p><strong>Projeto:</strong><%= @project.description %></p>
+<p><strong>Cliente:</strong><%= @project.client.name %></p>
+<p>
+    <% if @project.programmers.empty? %>
+    <strong>Nenhum programador alocado ao projeto</strong>
+    <% else %>
+    <strong>Programadore(s):</strong>
+    <ul>
+      <% @project.programmers.each do |programmer| %>
+        <li><%= programmer.name %></li>
+      <% end %>
+    </ul>
+    <% end %>
+</p>
+<%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-warning' %>
+    <%= link_to 'Voltar', projects_path, class: 'btn btn-secundary' %>
