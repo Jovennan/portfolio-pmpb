@@ -1,16 +1,16 @@
 <p id="notice">
-    <%= notice %>
+  <%= notice %>
 </p>
 
 <p>
-    <strong>Cliente:</strong>
-    <%= @client.name %>
+  <strong>Cliente:</strong>
+  <%= @client.name %>
 </p>
 
 <p>
-    <strong>ID:</strong>
-    <%= @client.id %>
+  <strong>ID:</strong>
+  <%= @client.id %>
 </p>
 
 <%= link_to 'Editar', edit_client_path(@client), class: 'btn btn-warning' %>
-    <%= link_to 'Voltar', clients_path, class: 'btn btn-secundary' %>
+<%= link_to 'Voltar', clients_path, class: 'btn btn-secundary' %>

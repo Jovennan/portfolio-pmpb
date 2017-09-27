@@ -2,6 +2,10 @@ class ProgrammersController < ApplicationController
   before_action :set_programmer, only: [:show, :edit, :update, :destroy]
   def index
     @programmers = Programmer.all
+    respond_to do |format|
+      format.html 
+      format.json { render json: @programmers, status: :ok }
+    end
   end
 
   def show
@@ -35,7 +39,7 @@ class ProgrammersController < ApplicationController
     respond_to do |format|
       if @programmer.update(programmer_params)
         format.html { redirect_to @programmer, notice: 'Programador atualizado' }
-        format.json { render :show, status: :created, location: @programmer }
+        format.json { render :show, status: :ok, location: @programmer }
       else
         format.html { render :edit }
         format.json { render json: @programmer.errors, status: :unprocessable_entity }
