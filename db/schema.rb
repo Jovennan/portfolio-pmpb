@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170917205438) do
   create_table "programmers_projects", id: false, force: :cascade do |t|
     t.bigint "programmer_id", null: false
     t.bigint "project_id", null: false
+    t.index ["programmer_id", "project_id"], name: "index_programmers_projects_on_programmer_id_and_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
