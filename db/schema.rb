@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917205438) do
+ActiveRecord::Schema.define(version: 20170927190143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,5 +41,38 @@ ActiveRecord::Schema.define(version: 20170917205438) do
     t.index ["client_id"], name: "index_projects_on_client_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.date "initial_date"
+    t.date "final_date"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_schedules_on_project_id"
+  end
+
+  create_table "sprints", force: :cascade do |t|
+    t.date "initial_date"
+    t.date "final_Date"
+    t.bigint "schedule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_sprints_on_schedule_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "description"
+    t.boolean "status"
+    t.bigint "sprint_id"
+    t.bigint "programmer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["programmer_id"], name: "index_tasks_on_programmer_id"
+    t.index ["sprint_id"], name: "index_tasks_on_sprint_id"
+  end
+
   add_foreign_key "projects", "clients"
+  add_foreign_key "schedules", "projects"
+  add_foreign_key "sprints", "schedules"
+  add_foreign_key "tasks", "programmers"
+  add_foreign_key "tasks", "sprints"
 end
