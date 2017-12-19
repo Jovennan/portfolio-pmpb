@@ -15,6 +15,9 @@
       <%= f.collection_select(:client_id, @clients, :id, :name, class: 'form-control') %>
     </div>
     </div>
+    <%= f.fields_for :schedule do |s| %>
+      <%= render 'schedules/fields', s: s, schedule: @schedule %>
+    <% end %>
     <div class="actions">
       <%= f.submit 'Salvar', class: 'btn btn-primary btn-block' %>
     </div>

@@ -11,15 +11,20 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.build_schedule
   end
 
   def edit
     @project = Project.find(params[:id])
     @programmers = Programmer.all
+    # if @project.schedule.blank?
+    #   @project.schedule = Schedule.new
+    # end
   end
 
   def create
     @project = Project.new(project_params)
+    @project.schedule = set_schedule
 
     respond_to do |format|
       if @project.save
@@ -65,8 +70,20 @@ class ProjectsController < ApplicationController
     def set_clients
       @clients = Client.all
     end
+    def set_schedule
+      @schedule = Schedule.new()
+      @schedule.initial_date = params[:initial_date]
+      @schedule.final_date = params[:final_date]
+      @schedule
+    end
 
     def project_params
-      project_params = params.require(:project).permit(:description, :client_id, programmer_ids: [])
+      params.require(:project).permit(:description,
+                                      :client_id,
+                                      # schedule_attributes: [
+                                      #   :initial_date,
+                                      #   :final_date
+                                      # ],
+                                      programmer_ids: [])
     end
 end

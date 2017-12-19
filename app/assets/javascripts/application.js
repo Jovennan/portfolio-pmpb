@@ -15,4 +15,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require bootstrap-datepicker
+//= require data-confirm-modal
 //= require_tree .

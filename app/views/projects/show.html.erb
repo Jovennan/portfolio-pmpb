@@ -1,17 +1,28 @@
 <p id="notice"><%= notice %></p>
-<p><strong>Projeto:</strong><%= @project.description %></p>
-<p><strong>Cliente:</strong><%= @project.client.name %></p>
 <p>
-    <% if @project.programmers.empty? %>
+  <strong>Projeto:</strong><%= @project.description %></p>
+<p>
+  <strong>Cliente:</strong><%= @project.client.name %></p>
+
+  <span class="label label-success pull-right">
+    <strong>Cronograma</strong>
+  <p>  Início:
+    <%= @project.schedule.initial_date %></p>
+  <p>  Término:
+    <%= @project.schedule.final_date %></p>
+  </span>
+
+<p>
+  <% if @project.programmers.empty? %>
     <strong>Nenhum programador alocado ao projeto</strong>
-    <% else %>
+  <% else %>
     <strong>Programadore(s):</strong>
     <ul>
       <% @project.programmers.each do |programmer| %>
         <li><%= programmer.name %></li>
       <% end %>
     </ul>
-    <% end %>
+  <% end %>
 </p>
 <%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-warning' %>
-    <%= link_to 'Voltar', projects_path, class: 'btn btn-secundary' %>
+<%= link_to 'Voltar', projects_path, class: 'btn btn-secundary' %>

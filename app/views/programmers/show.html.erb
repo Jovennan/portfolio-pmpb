@@ -1,16 +1,16 @@
 <p id="notice">
-    <%= notice %>
+  <%= notice %>
 </p>
 
 <p>
-    <strong>Programador:</strong>
-    <%= @programmer.name %>
+  <strong>Programador:</strong>
+  <%= @programmer.name %>
 </p>
 
 <p>
-    <strong>ID:</strong>
-    <%= @programmer.id %>
+  <strong>ID:</strong>
+  <%= @programmer.id %>
 </p>
 
 <%= link_to 'Editar', edit_programmer_path(@programmer), class: 'btn btn-warning' %>
-    <%= link_to 'Voltar', programmers_path, class: 'btn btn-secundary' %>
+<%= link_to 'Voltar', programmers_path, class: 'btn btn-secundary' %>

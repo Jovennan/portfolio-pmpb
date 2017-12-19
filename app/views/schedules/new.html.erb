@@ -1,0 +1,8 @@
+<h1>Criando Crongrama</h1>
+<%= form_for(@schedule) do |s| %>
+  <%= render '/schedules/fields', s: s %>
+
+  <button type="submit" class="btn btn-success btn-block">Salvar</button>
+<% end %>
+<br>
+<%= link_to 'Voltar', schedules_path, class: 'btn btn-default' %>

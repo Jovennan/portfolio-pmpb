@@ -32,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'font-awesome-sass',                  '~> 4.7.0'
+gem 'bootstrap-datepicker-rails'
+gem 'rails-i18n'
+gem 'data-confirm-modal'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

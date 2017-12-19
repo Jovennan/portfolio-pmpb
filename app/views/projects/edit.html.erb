@@ -2,7 +2,13 @@
 <%= form_for(@project) do |f| %>
   <%= render 'errors', project: @project %>
   <%= render 'fields', f: f, project: @project %>
+
+  <%= f.fields_for :schedule do |s| %>
+    <%= render 'schedules/fields', s: s, schedule: @schedule %>
+  <% end %>
+
   <%= render 'fields_programmers', f: f, project: @project, programmers: @programmers %>
+
   <button type="submit" class="btn btn-success btn-block">Atualizar</button>
 <% end %>
 <br>
