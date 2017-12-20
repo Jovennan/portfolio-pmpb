@@ -1,6 +1,14 @@
 ---
 pt-BR:
   title: 'Portfólio'
+  attention: 'Atenção'
+  cancel: 'Cancelar'
+  delete: 'Deletar'
+  name: 'Nome'
+  initial_date: 'Data Inicial'
+  final_date: 'Data Final'
+  apelido: 'Apelido'
+  confirm_exclusion: 'Você confirma a exclusão de '
   activerecord:
     errors:
       messages:

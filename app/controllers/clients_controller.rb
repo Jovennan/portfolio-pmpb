@@ -28,10 +28,10 @@ class ClientsController < ApplicationController
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
-  end 
+  end
 
   def update
-    
+
     respond_to do |format|
       if @client.update(client_params)
         format.html { redirect_to @client, notice: 'Cliente atualizado' }
@@ -41,7 +41,7 @@ class ClientsController < ApplicationController
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
-  end 
+  end
 
   def destroy
 
@@ -54,14 +54,14 @@ class ClientsController < ApplicationController
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
-  end 
+  end
 
   private
-    def set_client 
+    def set_client
       @client = Client.find(params[:id])
     end
 
     def client_params
-      params.require(:client).permit(:name)
-    end 
+      params.require(:client).permit(:name, :apelido)
+    end
 end

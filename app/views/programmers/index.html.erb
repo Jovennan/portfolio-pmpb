@@ -25,8 +25,12 @@
                     <%= link_to 'Editar', edit_programmer_path(programmer), class: 'btn btn-warning' %>
                 </td>
                 <td>
-                    <%= link_to 'Remover', programmer_path(programmer), class: 'btn btn-danger',
-                    method: :delete, data: { confirm: 'Confirma remoção? Ação irreversível!!!'} %>
+                    <%= link_to t('delete'), programmer_path(programmer),
+                    class: 'btn btn-danger', method: :delete,
+                      data: {
+                        title: t('attention'),
+                        confirm: t('confirm_exclusion') + programmer.name + '?',
+                        commit: t('delete'), cancel: t('cancel')} %>
                 </td>
             </tr>
             <% end %>
